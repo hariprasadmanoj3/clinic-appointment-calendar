@@ -1,8 +1,10 @@
 import React from 'react';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
+import { ThemeProvider } from './contexts/ThemeContext';
 import Login from './components/Login';
 import Header from './components/Header';
 import Calendar from './components/Calendar';
+import './styles/themes.css';
 import './App.css';
 
 function AppContent() {
@@ -35,9 +37,11 @@ function AppContent() {
 
 function App() {
   return (
-    <AuthProvider>
-      <AppContent />
-    </AuthProvider>
+    <ThemeProvider>
+      <AuthProvider>
+        <AppContent />
+      </AuthProvider>
+    </ThemeProvider>
   );
 }
 
