@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { getMonthDays, isToday, isSameDay, formatDate } from '../utils/dateUtils';
+import { getMonthDays, isToday, formatDate } from '../utils/dateUtils';
 import { loadAppointments, addAppointment, updateAppointment, deleteAppointment } from '../utils/localStorage';
 import AppointmentCard from './AppointmentCard';
 import AppointmentForm from './AppointmentForm';
