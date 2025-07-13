@@ -2,6 +2,8 @@
   padding: 20px;
   max-width: 1200px;
   margin: 0 auto;
+  background: var(--bg-secondary);
+  min-height: calc(100vh - 80px);
 }
 
 .calendar-header {
@@ -20,47 +22,62 @@
 }
 
 .calendar-nav button {
-  background: #667eea;
-  color: white;
+  background: var(--accent-primary);
+  color: var(--text-inverse);
   border: none;
   padding: 0.5rem 1rem;
   border-radius: 5px;
   cursor: pointer;
   font-size: 1.2rem;
+  transition: all 0.3s ease;
+}
+
+.calendar-nav button:hover {
+  background: var(--accent-hover);
+  transform: translateY(-1px);
 }
 
 .calendar-nav h2 {
   margin: 0;
   min-width: 200px;
   text-align: center;
+  color: var(--text-primary);
 }
 
 .today-btn, .add-appointment-btn {
-  background: #28a745;
-  color: white;
+  background: var(--success);
+  color: var(--text-inverse);
   border: none;
   padding: 0.5rem 1rem;
   border-radius: 5px;
   cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.today-btn:hover, .add-appointment-btn:hover {
+  background: #218838;
+  transform: translateY(-1px);
 }
 
 .calendar-grid {
-  border: 1px solid #ddd;
+  border: 1px solid var(--border-color);
   border-radius: 8px;
   overflow: hidden;
+  background: var(--bg-primary);
 }
 
 .calendar-header-row {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  background: #f8f9fa;
+  background: var(--bg-tertiary);
 }
 
 .calendar-header-cell {
   padding: 1rem;
   text-align: center;
   font-weight: bold;
-  border-right: 1px solid #ddd;
+  border-right: 1px solid var(--border-color);
+  color: var(--text-primary);
 }
 
 .calendar-header-cell:last-child {
@@ -70,15 +87,16 @@
 .calendar-week {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  border-top: 1px solid #ddd;
+  border-top: 1px solid var(--border-color);
 }
 
 .calendar-day {
   min-height: 120px;
-  border-right: 1px solid #ddd;
+  border-right: 1px solid var(--border-color);
   padding: 0.5rem;
   cursor: pointer;
   transition: background-color 0.2s;
+  background: var(--bg-primary);
 }
 
 .calendar-day:last-child {
@@ -86,7 +104,7 @@
 }
 
 .calendar-day:hover:not(.empty) {
-  background-color: #f8f9fa;
+  background-color: var(--bg-hover);
 }
 
 .calendar-day.empty {
@@ -94,12 +112,13 @@
 }
 
 .calendar-day.today {
-  background-color: #e3f2fd;
+  background-color: var(--accent-light);
 }
 
 .day-number {
   font-weight: bold;
   margin-bottom: 0.5rem;
+  color: var(--text-primary);
 }
 
 .day-appointments {
@@ -109,8 +128,8 @@
 }
 
 .appointment-card {
-  background: #667eea;
-  color: white;
+  background: var(--accent-primary);
+  color: var(--text-inverse);
   padding: 0.25rem 0.5rem;
   border-radius: 3px;
   font-size: 0.75rem;
@@ -120,7 +139,7 @@
 }
 
 .appointment-card:hover {
-  background: #5a6fd8;
+  background: var(--accent-hover);
 }
 
 .appointment-time {
@@ -136,8 +155,8 @@
   position: absolute;
   top: -5px;
   right: -5px;
-  background: #e74c3c;
-  color: white;
+  background: var(--danger);
+  color: var(--text-inverse);
   border: none;
   border-radius: 50%;
   width: 16px;
@@ -152,6 +171,10 @@
 }
 
 /* Mobile Styles */
+.calendar-container.mobile {
+  background: var(--bg-secondary);
+}
+
 .calendar-container.mobile .calendar-header {
   flex-direction: column;
   text-align: center;
@@ -159,13 +182,19 @@
 
 .date-picker {
   padding: 0.5rem;
-  border: 1px solid #ddd;
+  border: 1px solid var(--border-color);
   border-radius: 5px;
   font-size: 1rem;
+  background: var(--bg-primary);
+  color: var(--text-primary);
 }
 
 .mobile-day-view {
   text-align: center;
+}
+
+.mobile-day-view h2 {
+  color: var(--text-primary);
 }
 
 .appointments-list {
@@ -176,17 +205,17 @@
 }
 
 .mobile-day-view .appointment-card {
-  background: white;
-  color: #333;
-  border: 1px solid #ddd;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
   padding: 1rem;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px var(--shadow-light);
 }
 
 .mobile-day-view .appointment-time {
   font-size: 1.2rem;
-  color: #667eea;
+  color: var(--accent-primary);
 }
 
 .mobile-day-view .appointment-patient,
@@ -194,10 +223,11 @@
   font-size: 1rem;
   opacity: 1;
   margin: 0.5rem 0;
+  color: var(--text-secondary);
 }
 
 .no-appointments {
-  color: #666;
+  color: var(--text-muted);
   font-style: italic;
   margin: 2rem 0;
 }

@@ -1,27 +1,26 @@
 import React, { useState } from 'react';
-import { mockCredentials } from '../data/mockData';
+import { useAuth } from '../hooks/useAuth';
 import '../styles/Login.css';
 
-const Login = ({ onLogin }) => {
+const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const { login } = useAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
     setError('');
 
-    // Simulate API call delay
-    setTimeout(() => {
-      if (email === mockCredentials.email && password === mockCredentials.password) {
-        onLogin();
-      } else {
-        setError('Invalid email or password');
-      }
+    try {
+      await login(email, password);
+    } catch (err) {
+      setError(err.message);
+    } finally {
       setIsLoading(false);
-    }, 1000);
+    }
   };
 
   return (
