@@ -15,7 +15,6 @@ A modern, responsive appointment management system built for healthcare clinics 
 - [Installation](#-installation)
 - [Usage](#-usage)
 - [Project Structure](#-project-structure)
-- [Screenshots](#-screenshots)
 - [Contributing](#-contributing)
 - [License](#-license)
 
@@ -179,16 +178,6 @@ src/
 - **Theme Transitions**: 0.3s smooth transitions
 - **Hover Effects**: Subtle interactive feedback
 - **Modal Animations**: Professional slide-in effects
-
-## 📱 Screenshots
-
-*Add screenshots here showcasing:*
-- Login interface (light/dark)
-- Desktop calendar view
-- Mobile day view
-- Appointment creation modal
-- Dark mode toggle
-- Responsive layouts
 
 ## 🔮 Future Enhancements
 
